@@ -1,3 +1,4 @@
+cp nginx.conf /etc/nginx/default.d/roboshop.conf
 yum install nginx -y
 systemctl start nginx
 systemctl enable nginx
