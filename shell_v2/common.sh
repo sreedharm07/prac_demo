@@ -20,3 +20,4 @@ function_nodejs() {
   yum install mongodb-org-shell -y
   mongo --host 172.31.81.91 </app/schema/${component}.js
 }
+#------------------------------------------------------------------------------------------------------
