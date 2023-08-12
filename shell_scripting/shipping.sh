@@ -14,6 +14,6 @@ systemctl daemon-reload
 systemctl enable shipping
 systemctl start shipping
 yum install mysql -y
-mysql -h 172.31.82.198 -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h 172.31.84.121 -uroot -pRoboShop@1 < /app/schema/shipping.sql
 systemctl restart shipping
 
