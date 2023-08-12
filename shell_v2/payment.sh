@@ -1,3 +1,3 @@
 component=payment
 source common.sh
-function_golang
+function_python

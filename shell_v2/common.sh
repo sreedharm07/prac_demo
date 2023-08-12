@@ -51,7 +51,7 @@ function_maven(){
   systemctl restart ${component}
 }
 #-----------------------------------------------------------------------------------------------------------
-function_golang(){
+function_python(){
   cp ${component}.service /etc/systemd/system/${component}.service
 
   yum install python36 gcc python3-devel -y
@@ -66,4 +66,23 @@ function_golang(){
   systemctl daemon-reload
   systemctl enable ${component}
   systemctl start ${component}
+}
+#-----------------------------------------------------------------------------------------------------------
+function_golang(){
+cp ${component}.service /etc/systemd/system/${component}.service
+
+yum install golang -y
+useradd roboshop
+rm -rf /app
+mkdir /app
+curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
+cd /app
+unzip /tmp/${component}.zip
+cd /app
+go mod init ${component}
+go get
+go build
+systemctl daemon-reload
+systemctl enable ${component}
+systemctl start ${component}
 }
