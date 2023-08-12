@@ -11,8 +11,10 @@ cd /app
 unzip /tmp/user.zip
 cd /app
 npm install
-yum install mongodb-org-shell -y
+
 yum install mongodb-org-shell -y
 mongo --host 172.31.90.137 </app/schema/user.js
 
 systemctl daemon-reload
+systemctl start user
+systemctl enable user
