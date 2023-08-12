@@ -1,3 +1,3 @@
-component = catalogue
+component=catalogue
 source  common.sh
 function_nodejs
