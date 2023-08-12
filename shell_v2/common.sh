@@ -20,7 +20,7 @@ function_nodejs() {
 }
 #------------------------------------------------------------------------------------------------------
 schema_function () {
-  if ["${schema_type}" == "mongodb"]; then
+  if [ "${schema_type}" == "mongodb" ]; then
   yum install mongodb-org-shell -y
   mongo --host 172.31.81.91 </app/schema/${component}.js
   fi
