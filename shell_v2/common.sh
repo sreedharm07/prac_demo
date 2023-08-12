@@ -16,8 +16,13 @@ function_nodejs() {
   systemctl daemon-reload
   systemctl start ${component}
   systemctl enable ${component}
-
-  yum install mongodb-org-shell -y
-  mongo --host 172.31.81.91 </app/schema/${component}.js
+  schema_function
 }
 #------------------------------------------------------------------------------------------------------
+schema_function () {
+  if ["${schema_type}" == "mongodb"]; then
+  yum install mongodb-org-shell -y
+  mongo --host 172.31.81.91 </app/schema/${component}.js
+  fi
+}
+#--------------------------------------------------------------------------------------------------------
