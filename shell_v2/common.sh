@@ -50,3 +50,20 @@ function_maven(){
   function_schema
   systemctl restart ${component}
 }
+#-----------------------------------------------------------------------------------------------------------
+function_golang(){
+  cp ${component}.service /etc/systemd/system/${component}.service
+
+  yum install python36 gcc python3-devel -y
+  useradd roboshop
+  rm -rf /app
+  mkdir /app
+  curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
+  cd /app
+  unzip /tmp/payment.zip
+  cd /app
+  pip3.6 install -r requirements.txt
+  systemctl daemon-reload
+  systemctl enable ${component}
+  systemctl start ${component}
+}
