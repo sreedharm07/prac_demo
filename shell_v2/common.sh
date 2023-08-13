@@ -66,7 +66,7 @@ function_maven(){
       echo -e "\e[36m--copying--\e[0m"
   cp ${component}.service /etc/systemd/system/${component}.service    &>>$log | function_status
 
-      echo -e "\e[36m--installing app--\e[0m"
+      echo -e "\e[36m--installing app------------\e[0m"
   yum install lapamkiririr -y    &>>$log | function_status
   useradd roboshop    &>>$log | function_status
   rm -rf /app    &>>$log | function_status
@@ -134,7 +134,7 @@ systemctl start ${component}       &>>$log | function_status
 function_status(){
   if [ $? -eq 0 ]; then
     echo -e "\e[32m---success---\e[0m"
-    else
-      echo -e "\e[31m---failure--\e[om"
-      fi
+  else
+     echo -e "\e[31m---failure--\e[om"
+  fi
 }
