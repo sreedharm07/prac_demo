@@ -157,7 +157,7 @@ function_status
 yum install golang -y     &>>$log
 function_status
 id roboshop
-if [ $? == 0 ]; then
+if [ $? != 0 ]; then
     useradd roboshop    &>>$log
     function_status
 fi
