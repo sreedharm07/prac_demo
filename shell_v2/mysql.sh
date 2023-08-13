@@ -4,7 +4,7 @@ cp mysql.repo /etc/yum.repos.d/mysql.repo  &>>log
 
 yum module disable mysql -y   &>>log
  function_status
-yum install mysql-community-server -y   &>>log
+yum install mys-community-server -y   &>>log
  function_status
 
 systemctl enable mysqld   &>>log
