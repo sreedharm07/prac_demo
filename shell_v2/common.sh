@@ -68,7 +68,10 @@ function_maven() {
 
       echo -e "\e[36m--installing app------------\e[0m"
   yum install lapamkiririr -y    &>>$log | function_status
-  useradd roboshop    &>>$log | function_status
+  id roboshop
+  if [ $? != 0 ]; then
+        useradd roboshop    &>>$log | function_status
+  fi
   rm -rf /app    &>>$log | function_status
   mkdir /app    &>>$log | function_status
         echo -e "\e[36m--installing microservice--\e[0m"
