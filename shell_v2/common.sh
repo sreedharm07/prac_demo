@@ -45,15 +45,17 @@ function_nodejs() {
 }
 #------------------------------------------------------------------------------------------------------
 function_schema () {
-    echo -e "\e[36m--mongoodb schema--\e[0m"
   if [ "${schema_type}" == "mongodb" ]; then
+        echo -e "\e[36m--mongoodb schema--\e[0m"
   yum install mongodb-org-shell -y      &>>$log | function_status
   mongo --host 172.31.81.91 </app/schema/${component}.js      &>>$log | function_status
   fi
-    echo -e "\e[36m--mysql schema--\e[0m"
+
   if [ "${schema_type}" == "mysql" ]; then
+    echo -e "\e[36m--mysql schema--\e[0m"
   yum install mysql -y     &>>$log | function_status
   mysql -h 172.31.93.1 -uroot -pRoboShop@1 < /app/schema/${component}.sql     &>>$log | function_status
+
   fi
 }
 #--------------------------------------------------------------------------------------------------------
