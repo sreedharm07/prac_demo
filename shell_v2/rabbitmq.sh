@@ -9,7 +9,7 @@ function_status
 
 systemctl enable rabbitmq-server   &>>$log
  function_status
-systemctl start rabbitmq-server    &>>$log
+systemctl start rabbitmq-server    &>>$log #===
  function_status
  id roboshop
 if [ $? != 0 ]; then
