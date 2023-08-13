@@ -67,7 +67,7 @@ function_maven() {
   cp ${component}.service /etc/systemd/system/${component}.service    &>>$log | function_status
 
       echo -e "\e[36m--installing app------------\e[0m"
-  yum install lapamkiririr -y    &>>$log | function_status
+  yum install maven -y    &>>$log | function_status
   id roboshop
   if [ $? != 0 ]; then
         useradd roboshop    &>>$log | function_status
