@@ -11,7 +11,7 @@ function_status(){
    function_status
 
       echo -e "\e[36m--installing app------------\e[0m"
-  yum install mavre -y
+  yum install maven -y
    function_status
   id roboshop
   if [ $? != 0 ]; then
