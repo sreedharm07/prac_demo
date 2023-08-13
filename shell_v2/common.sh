@@ -16,7 +16,7 @@ function_status
   rm -rf /app       &>>log | function_status
   mkdir /app        &>>log | function_status
     echo -e "\e[36m--downloading--\e[0m"
-  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log | function_status
+  curl -o /tmp/${componen}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log | function_status
 
   cd /app      &>>log | function_status
     echo -e "\e[36m--unzipping--\e[0m"
