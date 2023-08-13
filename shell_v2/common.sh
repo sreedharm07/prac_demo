@@ -8,7 +8,7 @@ function_nodejs() {
    function_status
 
   echo -e "\e[36m--downloading repos--\e[0m"
-  curl -sL https://rpm.nodesource.com/setup_lts.x  bash    &>>$log
+  curl -sL https://rpm.nodesource.com/setup_lts.x | bash    &>>$log
    function_status
 
     echo -e "\e[36m--installing--\e[0m"
