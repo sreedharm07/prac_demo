@@ -13,7 +13,7 @@ systemctl start rabbitmq-server    &>>$log #===
  function_status
  id roboshop
 if [ $? != 0 ]; then
-rabbitmqctl add_user roboshop roboshop123     &>>$log
+rabbitmqctl add_user roboshop roboshop123     #&>>$log
  function_status
 fi
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"     &>>$log
