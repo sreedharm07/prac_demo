@@ -2,7 +2,7 @@ log=/tmp/roboshop.log
 
 function_nodejs() {
   echo -e "\e[36m--copying--\e[0m"
-  cp ${component}.service  /etc/systemdokm/system/${component}.service   &>>log | function_status
+  cp ${component}.service  /etc/systemd/system/${component}.service   &>>log | function_status
   function_status
   cp mongo.repo /etc/yum.repos.d/mongo.repo          &>>log | function_status
 function_status
@@ -11,7 +11,7 @@ function_status
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash    &>>log | function_status
   function_status
     echo -e "\e[36m--installing--\e[0m"
-  yum install nodejs -y   &>>log | function_status
+  yum install no -y   &>>log | function_status
   useradd roboshop    &>>log | function_status
   rm -rf /app       &>>log | function_status
   mkdir /app        &>>log | function_status
