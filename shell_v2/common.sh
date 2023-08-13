@@ -14,8 +14,11 @@ function_nodejs() {
     echo -e "\e[36m--installing--\e[0m"
   yum install nodejs -y   &>>$log
    function_status
+   id roboshop    &>>$log
+   if [ $? != 0 ]; then
   useradd roboshop    &>>$log
    function_status
+   fi
   rm -rf /app       &>>$log
   function_status
   mkdir /app        &>>$log
