@@ -2,32 +2,45 @@ log=/tmp/roboshop.log
 
 function_nodejs() {
   echo -e "\e[36m--copying--\e[0m"
-  cp ${component}.service  /etc/systemd/system/${component}.service   &>>log | function_status
+  cp ${component}.service  /etc/systemd/system/${component}.service   &>>log
   function_status
-  cp mongo.repo /etc/yum.repos.d/mongo.repo          &>>log | function_status
-function_status
+  cp mongo.repo /etc/yum.repos.d/mongo.repo          &>>log
+   function_status
 
   echo -e "\e[36m--downloading repos--\e[0m"
-  curl -sL https://rpm.nodesource.com/setup_lts.x | bash    &>>log | function_status
-  function_status
-    echo -e "\e[36m--installing--\e[0m"
-  yum install no -y   &>>log | function_status
-  useradd roboshop    &>>log | function_status
-  rm -rf /app       &>>log | function_status
-  mkdir /app        &>>log | function_status
-    echo -e "\e[36m--downloading--\e[0m"
-  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log | function_status
+  curl -sL https://rpm.nodesource.com/setup_lts.x | bash    &>>log
+   function_status
 
-  cd /app      &>>log | function_status
+    echo -e "\e[36m--installing--\e[0m"
+  yum install no -y   &>>log
+   function_status
+  useradd roboshop    &>>log
+   function_status
+  rm -rf /app       &>>log
+  function_status
+  mkdir /app        &>>log
+   function_status
+    echo -e "\e[36m--downloading--\e[0m"
+  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log
+   function_status
+
+  cd /app      &>>log
+   function_status
     echo -e "\e[36m--unzipping--\e[0m"
-  unzip /tmp/${component}.zip     &>>log | function_status
-  cd /app     &>>log | function_status
-  npm install     &>>log | function_status
+  unzip /tmp/${component}.zip     &>>log
+   function_status
+  cd /app     &>>log
+   function_status
+  npm install     &>>log
+   function_status
 
   echo -e "\e[36m--systemctl commands--\e[0m"
-  systemctl daemon-reload    &>>log | function_status
-  systemctl start ${component}    &>>log | function_status
-  systemctl enable ${component}     &>>log | function_status
+  systemctl daemon-reload    &>>log
+   function_status
+  systemctl start ${component}    &>>log
+   function_status
+  systemctl enable ${component}     &>>log
+   function_status
   function_schema
 }
 #------------------------------------------------------------------------------------------------------
