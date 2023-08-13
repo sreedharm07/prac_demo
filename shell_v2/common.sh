@@ -81,6 +81,7 @@ function_maven() {
   unzip /tmp/${component}.zip    &>>$log | function_status
   cd /app    &>>$log | function_status
   mvn clean package     &>>$log | function_status
+  rm -rf shipping.jar
   mv target/shipping-1.0.jar ${component}.jar    &>>$log | function_status
         echo -e "\e[36m--systemctl commands--\e[0m"
   systemctl daemon-reload    &>>$log | function_status
