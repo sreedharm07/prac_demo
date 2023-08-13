@@ -12,7 +12,7 @@ function_nodejs() {
    function_status
 
     echo -e "\e[36m--installing--\e[0m"
-  yum install no -y   &>>$log
+  yum install nodejs -y   &>>$log
    function_status
   useradd roboshop    &>>$log
    function_status
