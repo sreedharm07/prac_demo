@@ -12,7 +12,7 @@ systemctl enable rabbitmq-server   &>>$log
 systemctl start rabbitmq-server    &>>$log
  function_status
  id roboshop
-if [ $? == 0 ]; then
+if [ $? != 0 ]; then
 rabbitmqctl add_user roboshop roboshop123     &>>$log
  function_status
 fi
