@@ -116,7 +116,7 @@ function_python(){
   cp ${component}.service /etc/systemd/system/${component}.service   &>>$log
    function_status
       echo -e "\e[36m--installing python--\e[0m"
-  yum install zpython36 zgcc zpython3-devel -y    &>>$log
+  yum install python36 gcc python3-devel -y    &>>$log
   function_status
   useradd roboshop    &>>$log
   function_status
