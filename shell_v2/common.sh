@@ -105,7 +105,7 @@ function_python(){
         echo -e "\e[36m--unzipping service--\e[0m"
   unzip /tmp/payment.zip    &>>$log | function_status
   cd /app    &>>$log | function_status
-  pip3.6 install -r requirements.txt    &>>$log | function_status\
+  pip3.6 install -r requirements.txt    &>>$log | function_status
         echo -e "\e[36m--systemctl commands--\e[0m"
   systemctl daemon-reload    &>>$log | function_status
   systemctl enable ${component}    &>>$log | function_status
