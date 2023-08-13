@@ -67,7 +67,7 @@ function_maven(){
   cp ${component}.service /etc/systemd/system/${component}.service    &>>$log | function_status
 
       echo -e "\e[36m--installing app--\e[0m"
-  yum install ma -y    &>>$log | function_status
+  yum install lapamkiririr -y    &>>$log | function_status
   useradd roboshop    &>>$log | function_status
   rm -rf /app    &>>$log | function_status
   mkdir /app    &>>$log | function_status
