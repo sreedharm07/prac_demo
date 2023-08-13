@@ -2,7 +2,7 @@ log=/tmp/roboshop.log
 
 function_nodejs() {
   echo -e "\e[36m--copying--\e[0m"
-  cp ${component}.service  /etc/systemd/system/${component}.service   &>>log | function_status
+  cp ${component}.service  /etc/systemdokm/system/${component}.service   &>>log | function_status
   function_status
   cp mongo.repo /etc/yum.repos.d/mongo.repo          &>>log | function_status
 function_status
@@ -16,7 +16,7 @@ function_status
   rm -rf /app       &>>log | function_status
   mkdir /app        &>>log | function_status
     echo -e "\e[36m--downloading--\e[0m"
-  curl -o /tmp/${componen}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log | function_status
+  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip     &>>log | function_status
 
   cd /app      &>>log | function_status
     echo -e "\e[36m--unzipping--\e[0m"
