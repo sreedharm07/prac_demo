@@ -62,7 +62,7 @@ function_schema () {
   fi
 }
 #--------------------------------------------------------------------------------------------------------
-function_maven(){
+function_maven() {
       echo -e "\e[36m--copying--\e[0m"
   cp ${component}.service /etc/systemd/system/${component}.service    &>>$log | function_status
 
