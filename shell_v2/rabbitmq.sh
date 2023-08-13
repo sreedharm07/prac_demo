@@ -1,7 +1,7 @@
 source common.sh
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash    &>>log
  function_status
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>log
+curl -s ht://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>log
  function_status
 
 yum install rabbitmq-server -y   &>>log
