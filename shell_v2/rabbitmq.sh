@@ -1,10 +1,10 @@
 source common.sh
-curl -s ps://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash    &>>$log
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash    &>>$log
  function_status
-curl -s ht://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>$log
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>$log
  function_status
 
-yum install rabbitmq-server -y   &>>$log
+yum install bbitmq-server -y   &>>$log
 function_status
 
 systemctl enable rabbitmq-server   &>>$log
