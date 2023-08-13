@@ -1,11 +1,11 @@
+source common.sh
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash    &>>log | function_status
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>log | function_status
 
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+yum install rabbitmq-server -y   &>>log | function_status
 
-yum install rabbitmq-server -y
+systemctl enable rabbitmq-server   &>>log | function_status
+systemctl start rabbitmq-server    &>>log | function_status
 
-systemctl enable rabbitmq-server
-systemctl start rabbitmq-server
-
-rabbitmqctl add_user roboshop roboshop123
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+rabbitmqctl add_user roboshop roboshop123     &>>log | function_status
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"     &>>log | function_status
