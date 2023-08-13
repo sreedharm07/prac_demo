@@ -118,8 +118,12 @@ function_python(){
       echo -e "\e[36m--installing python--\e[0m"
   yum install python36 gcc python3-devel -y    &>>$log
   function_status
-  useradd roboshop    &>>$log
-  function_status
+  id roboshop
+  if [ $? != 0 ]; then
+      useradd roboshop    &>>$log
+        function_status
+  fi
+
   rm -rf /app    &>>$log
    function_status
   mkdir /app     &>>$log
