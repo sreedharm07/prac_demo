@@ -12,7 +12,7 @@ function_nodejs() {
    function_status
 
     echo -e "\e[36m--installing--\e[0m"
-  yum install nojs -y   &>>$log
+  yum install nodejs -y   &>>$log
    function_status
    id roboshop    &>>$log
    if [ $? != 0 ]; then
