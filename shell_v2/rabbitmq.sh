@@ -4,7 +4,7 @@ curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash   &>>$log
  function_status
 
-yum install bbitmq-server -y   &>>$log
+yum install rabbitmq-server -y   &>>$log
 function_status
 
 systemctl enable rabbitmq-server   &>>$log
