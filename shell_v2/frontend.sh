@@ -1,9 +1,9 @@
 log=/tmp/roboshop.log
 function_status() {
   if [ $? == 0 ]; then
-      echo -e "\e[31msucess\e[0m"
+      echo -e "\e[32msucess\e[0m"
     else
-      echo -e "\e[32mfailure\e[0m"
+      echo -e "\e[31mfailure\e[0m"
 fi
 }
 
