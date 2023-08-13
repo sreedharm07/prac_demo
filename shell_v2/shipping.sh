@@ -50,4 +50,3 @@ function_status(){
   function_status
   systemctl restart ${component}
      function_status
-}
