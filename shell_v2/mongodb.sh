@@ -20,7 +20,7 @@ systemctl enable mongod         &>> log
 function_status
 
 
-sed -i 's \127.0.0.1\0.0.0.0\' /etc/mongod.conf      &>> log
+#sed -i 's \127.0.0.1\0.0.0.0\' /etc/mongod.conf      &>> log
 function_status
 
 systemctl restart mongod      &>> log
