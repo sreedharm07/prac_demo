@@ -149,7 +149,7 @@ function_python(){
   function_status
 }
 #-----------------------------------------------------------------------------------------------------------
-function_golang(){
+function_golang() {
         echo -e "\e[36m--copying repos--\e[0m"
 cp ${component}.service /etc/systemd/system/${component}.service    &>>$log
 function_status
