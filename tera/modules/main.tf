@@ -14,8 +14,8 @@ resource "aws_route53_record" "record" {
   name    = "${var.components}.cloudev7.online"
   type    = "A"
   ttl     = 30
-#  records = [aws_instance.instance[each.key].private_ip]
-  records = aws_instance.instance.private_ip
+#  records = [aws_instance.instance[each.key].private_ip](when we give liip in route 53
+  records = [aws_instance.instance.private_ip]
 }
 
 
