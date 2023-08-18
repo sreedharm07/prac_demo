@@ -5,5 +5,5 @@ components= {
   frontend  = { name = "frontend" }
   mongodb   = { name = "mongodb" }
   catalogue = { name = "catalogue" }
-  redi     = {name="redis"}
+  redis     = {name="redis"}
 }
