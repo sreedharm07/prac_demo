@@ -10,10 +10,10 @@ variable "instance_type" {
 variable "security_group" {
   default = "sg-03c71c5d008981a14"
 }
-variable "components" {
+variable "zone_id" {
   default = "Z07380001ED1GOXY0KMLD"
 }
-variable "zone_id" {
+variable "components" {
   default = {
     components = {
       frontend  = { name = "frontend" }
