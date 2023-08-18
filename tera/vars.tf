@@ -9,9 +9,18 @@ variable "zone_id" {
 }
 variable "components" {
   default = {
-      frontend  = { name = "frontend" }
-      mongodb   = { name = "mongodb" }
-      catalogue = { name = "catalogue" }
-      redis     = { name = "redis" }
-    }
+    frontend  = { name = "frontend" }
+    mongodb   = { name = "mongodb" }
+    catalogue = { name = "catalogue" }
+    redis     = { name = "redis" }
+    user      = { name = "user" }
+    cart      = { name = "cart" }
+    mysql     = { name = "mysql" }
+    rabbitmq  = { name = "rabbitmq" }
+    shipping  = { name = "shipping" }
+    payment   = { name = "payment" }
+    dispatch  = { name = "dispatch" }
+
+
   }
+}
