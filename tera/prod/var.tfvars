@@ -24,7 +24,7 @@ components= {
   cart      = { name = "cart" }
   mysql     = { name = "mysql" }
   shipping  = { name = "shipping" }
-  rabitmq   = { name = "rabbitmq" }
+  rabbitmq   = { name = "rabbitmq" }
   dispatch  = { name = "dispatch" }
   payment   = { name = "payment" }
 }
