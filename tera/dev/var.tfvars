@@ -14,5 +14,5 @@ components= {
   shipping  = { name = "shipping" }
   rabitmq   = { name = "rabbitmq" }
   dispatch  = { name = "dispatch" }
-  payment   = { name = payment }
+  payment   = { name = "payment" }
 }
