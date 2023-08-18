@@ -10,9 +10,8 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "record" {
-  for_each = var.components
   zone_id = var.zone_id
-  name    = "${each.key}-dev"
+  name    = "${var.components}-dev"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.id]
