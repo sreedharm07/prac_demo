@@ -1,4 +1,4 @@
  bucket = "omg7"
- key    = "prod/state.tf"
+ key    = "prod/tera.tfstate"
  region = "us-east-1"
 

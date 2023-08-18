@@ -13,6 +13,6 @@ components= {
   mysql     = { name = "mysql" }
   shipping  = { name = "shipping" }
   rabbitmq   = { name = "rabbitmq" }
-  dispatch  = { name = "dispatch" }
   payment   = { name = "payment" }
+  dispatch  = { name = "dispatch" }
 }
