@@ -21,7 +21,7 @@
 #    payment   = { name = "payment" }
 #    dispatch  = { name = "dispatch" }
 #  }
-#}
+#}]]]]]]
 
 variable "instance_type" {}
 variable "security_group" {}
