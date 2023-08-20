@@ -1,14 +1,5 @@
-resource "aws_vpc" "vpc" {
+module "vpc" {
+  source = "git::https://github.com/sreedharm07/tera-vpc.git"
   for_each = var.vpc
-  cidr_block = each.value["cidr"]
-}
-
-resource "aws_subnet" "main" {
-  for_each = var.vpc.value["subnets"]
-  vpc_id     = aws_vpc.vpc
-  cidr_block = each.value["cidr"]
-
-  tags = {
-    Name = each.key
-  }
+  cidr=each.value["cidr"]
 }

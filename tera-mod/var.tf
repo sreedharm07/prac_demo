@@ -1,1 +1,2 @@
 variable "vpc" {}
+variable "cidr" {}
