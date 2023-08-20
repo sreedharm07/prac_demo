@@ -1,7 +1,4 @@
-module "vpc" {
-  source = "git::https://github.com/sreedharm07/tera-vpc.git"
-
+resource "aws_vpc" "main" {
   for_each = var.vpc
-  cidr=each.value["cidr"]
-  subnets=each.value["subnets"]
+  cidr_block = each.value["cidr"]
 }
