@@ -3,5 +3,5 @@ module "to_vpc" {
 
  for_each = var.vpc
   cidr   = each.value["cidr"]
-  subnets = each.value["sunets"]
+  subnets = each.value
 }
