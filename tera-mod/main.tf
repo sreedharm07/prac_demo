@@ -28,5 +28,5 @@ module "to_vpc" {
 
 
 output "vpc" {
-  value = module.to_vpc
+  value = local.subnets-ids
 }
