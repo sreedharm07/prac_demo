@@ -43,7 +43,7 @@ alb= {
   public = {
     internal   = "false"
     lb-type    = "application"
-    cidr-block = "0.0.0.0/0"
+    cidr-block = ["0.0.0.0/0"]
     sg-port= "80"
 
   }
