@@ -19,7 +19,7 @@ module "alb" {
   lb-type    = each.value["lb-type"]
   tags       = var.tags
   env        = var.env
-  vpc_id     = each.value["internal"] ? local.vpc_id : "vpc-0a3c5f7ee27b6f4c9"
+  vpc_id     = each.value["internal"] ? local.vpc_id : var.default_vpc_id
   cidr-block = each.value["cidr-block"]
   sg-port    = each.value["sg-port"]
   subnets    = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
