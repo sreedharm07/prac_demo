@@ -37,7 +37,6 @@ alb= {
     lb-type    = "application"
     cidr-block = ["172.31.0.0/16", "10.0.0.0/16"]
     sg-port= "80"
-
   }
 
   public = {
@@ -45,6 +44,5 @@ alb= {
     lb-type    = "application"
     cidr-block = ["0.0.0.0/0"]
     sg-port= "80"
-
   }
 }
