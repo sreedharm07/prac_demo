@@ -46,3 +46,11 @@ alb= {
     sg-port= "80"
   }
 }
+
+
+docdb={
+  main={
+
+
+  }
+}

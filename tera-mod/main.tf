@@ -26,6 +26,20 @@ module "alb" {
 
 }
 
+module "docdb" {
+  source = "git::https://github.com/sreedharm07/tf-docdb.git"
+  tags       = var.tags
+  env        = var.env
+
+  for_each = var.docdb
+subnets=local.db-ids
+}
+
+
+
+
+
+
 
 
 output "vpc" {
