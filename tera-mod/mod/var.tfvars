@@ -31,7 +31,7 @@ tags= {
 env="dev"
 
 
-lb= {
+alb= {
   private = {
     internal   = "true"
     lb-type    = "application"
