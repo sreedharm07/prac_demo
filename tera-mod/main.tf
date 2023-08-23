@@ -11,18 +11,18 @@ module "to_vpc" {
   env =var.env
 }
 
-#module "lb" {
-#  source     = "git::https://github.com/sreedharm07/tera-lb.git"
-#  for_each   = var.lb
-#  lb         = each.value["internal"]
-#  lb-type    = each.value["lb-type"]
-#  tags       = var.tags
-#  env        = var.env
-#  vpc_id     = each.value["internal"] ? local.vpc_id : var.vpc_default_id
-#  cidr-block = each.value["cidr-block"]
-#  sg-port    = each.value["sg-port"]
-#  subnet     = each.value["internal"] ?
-# }
+module "lb" {
+  source     = "git::https://github.com/sreedharm07/tera-lb.git"
+  for_each   = var.lb
+  lb         = each.value["internal"]
+  lb-type    = each.value["lb-type"]
+  tags       = var.tags
+  env        = var.env
+  vpc_id     = each.value["internal"] ? local.vpc_id : var.vpc_default_id
+  cidr-block = each.value["cidr-block"]
+  sg-port    = each.value["sg-port"]
+  subnet     = each.value["internal"] ?
+ }
 
 
 

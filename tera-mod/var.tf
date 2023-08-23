@@ -5,6 +5,3 @@ variable "vpc_default_id" {}
 variable "tags" {}
 variable "env" {}
 variable "lb" {}
-variable "lb-type"{}
-variable "cidr-block" {}
-variable "sg-port" {}
