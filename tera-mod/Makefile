@@ -3,6 +3,6 @@ dev:
 	terraform init
 	terraform apply -auto-approve -var-file=mod/var.tfvars
 
-dev:
+destroy:
 	terraform init
 	terraform destroy -auto-approve -var-file=mod/var.tfvars
