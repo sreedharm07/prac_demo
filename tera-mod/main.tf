@@ -33,9 +33,9 @@ module "docdb" {
 
   for_each                = var.docdb
   subnet_ids              = local.db-ids
-  engine_version          = each.value
-  master_username         = data.aws_ssm_parameter.username
-  master_password         = data.aws_ssm_parameter.password
+  engine_version          = each.value["engine_version"]
+  master_username         = data.aws_ssm_parameter.username.value
+  master_password         = data.aws_ssm_parameter.password.value
   backup_retention_period = each.value["backup_retention_period"]
   preferred_backup_window = each.value["preferred_backup_window"]
   skip_final_snapshot     = each.value["skip_final_snapshot"]
