@@ -44,9 +44,24 @@ module "docdb" {
   instance_class          = each.value["instance_class"]
 }
 
+module "rds" {
+  for_each = var.rds_mysql
+
+  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
+  tags                    = var.tags
+  env                     = var.env
+  subnets_ids             = local.db-ids
+  vpc_id                  = local.vpc_id
+  sg-ingress-cidr         = local.subnets-apps-cidr
+  sg_port                 = each.value["sg_port"]
+  family                  = each.value["family"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value.["preferred_backup_window"]
+  engine_version          = each.value["engine_version"]
+  engine                  = each.value["engine"]
 
 
-
+}
 
 
 output "vpc" {

@@ -36,24 +36,38 @@ alb= {
     internal   = "true"
     lb-type    = "application"
     cidr-block = ["172.31.0.0/16", "10.0.0.0/16"]
-    sg-port= "80"
+    sg-port    = "80"
   }
 
   public = {
     internal   = "false"
     lb-type    = "application"
     cidr-block = ["0.0.0.0/0"]
-    sg-port= "80"
+    sg-port    = "80"
   }
 }
 
 
-docdb={
-  main={
+docdb= {
+  main = {
     backup_retention_period = 5
     preferred_backup_window = "07:00-09:00"
     skip_final_snapshot     = true
-    engine_version="4.0.0"
-    instance_class="db.t3.medium"
+    engine_version          = "4.0.0"
+    instance_class          = "db.t3.medium"
+  }
+}
+
+rds_mysql= {
+  main = {
+    sg_port                 = 3306
+    family                  = "aurora-mysql5.7"
+    backup_retention_period = 5
+    preferred_backup_window = "07:00-09:00"
+    engine_version          = "5.7.mysql_aurora.2.11.3"
+    engine                  = "aurora-mysql"
+    skip_final_snapshot     = true
+
+
   }
 }
