@@ -68,6 +68,5 @@ rds_mysql= {
     engine                  = "aurora-mysql"
     skip_final_snapshot     = true
 
-
   }
 }
