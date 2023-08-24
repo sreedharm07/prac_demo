@@ -56,7 +56,7 @@ module "rds" {
   sg_port                 = each.value["sg_port"]
   family                  = each.value["family"]
   backup_retention_period = each.value["backup_retention_period"]
-  preferred_backup_window = each.value.["preferred_backup_window"]
+  preferred_backup_window = each.value["preferred_backup_window"]
   engine_version          = each.value["engine_version"]
   engine                  = each.value["engine"]
 
