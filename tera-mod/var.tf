@@ -7,3 +7,5 @@ variable "env" {}
 variable "alb" {}
 variable "docdb" {}
 variable "rds_mysql" {}
+
+variable "redis" {}

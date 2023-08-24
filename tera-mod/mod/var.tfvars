@@ -67,6 +67,16 @@ rds_mysql= {
     engine_version          = "5.7.mysql_aurora.2.11.3"
     engine                  = "aurora-mysql"
     skip_final_snapshot     = true
+  }
+}
 
+redis= {
+  main = {
+    family          = "redis6.x"
+    port            = 6379
+    engine          = "redis"
+    engine_version  = "6.2"
+    node_type       = "cache.t2.micro"
+    num_cache_nodes = 1
   }
 }

@@ -12,56 +12,71 @@ module "to_vpc" {
 
 }
 
-module "alb" {
-  source     = "git::https://github.com/sreedharm07/tera-lb.git"
-  for_each   = var.alb
-  lb         = each.value["internal"]
-  lb-type    = each.value["lb-type"]
-  tags       = var.tags
-  env        = var.env
-  vpc_id     = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  cidr-block = each.value["cidr-block"]
-  sg-port    = each.value["sg-port"]
-  subnets    = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
+#module "alb" {
+#  source     = "git::https://github.com/sreedharm07/tera-lb.git"
+#  for_each   = var.alb
+#  lb         = each.value["internal"]
+#  lb-type    = each.value["lb-type"]
+#  tags       = var.tags
+#  env        = var.env
+#  vpc_id     = each.value["internal"] ? local.vpc_id : var.default_vpc_id
+#  cidr-block = each.value["cidr-block"]
+#  sg-port    = each.value["sg-port"]
+#  subnets    = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
+#}
+
+#module "docdb" {
+#  source = "git::https://github.com/sreedharm07/tf-docdb.git"
+#  tags   = var.tags
+#  env    = var.env
+#
+#  for_each                = var.docdb
+#  subnet_ids              = local.db-ids
+#  engine_version          = each.value["engine_version"]
+#  master_username         = data.aws_ssm_parameter.username.value
+#  master_password         = data.aws_ssm_parameter.password.value
+#  backup_retention_period = each.value["backup_retention_period"]
+#  preferred_backup_window = each.value["preferred_backup_window"]
+#  skip_final_snapshot     = each.value["skip_final_snapshot"]
+#  vpc_id                  = local.vpc_id
+#  sg-ingress-cidr         = local.subnets-apps-cidr
+#  instance_class          = each.value["instance_class"]
+#}
+#
+#module "rds" {
+#  for_each = var.rds_mysql
+#
+#  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
+#  tags                    = var.tags
+#  env                     = var.env
+#  subnets_ids             = local.db-ids
+#  vpc_id                  = local.vpc_id
+#  sg-ingress-cidr         = local.subnets-apps-cidr
+#  sg_port                 = each.value["sg_port"]
+#  family                  = each.value["family"]
+#  backup_retention_period = each.value["backup_retention_period"]
+#  preferred_backup_window = each.value["preferred_backup_window"]
+#  engine_version          = each.value["engine_version"]
+#  engine                  = each.value["engine"]
+#  skip_final_snapshot     = each.value["skip_final_snapshot"]
+#}
+
+module "redis" {
+  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
+  for_each        = var.redis
+  subnet_ids      = local.db-ids
+  family          = each.value["family"]
+  vpc_id          = local.vpc_id
+  port            = each.value["port"]
+  sg-ingress-cidr = local.subnets-apps-cidr
+  engine          = each.value["engine"]
+  engine_version  = each.value["engine_version"]
+  node_type       = each.value["node_type"]
+  num_cache_nodes = each.value["num_cache_nodes"]
 
 }
 
-module "docdb" {
-  source = "git::https://github.com/sreedharm07/tf-docdb.git"
-  tags   = var.tags
-  env    = var.env
 
-  for_each                = var.docdb
-  subnet_ids              = local.db-ids
-  engine_version          = each.value["engine_version"]
-  master_username         = data.aws_ssm_parameter.username.value
-  master_password         = data.aws_ssm_parameter.password.value
-  backup_retention_period = each.value["backup_retention_period"]
-  preferred_backup_window = each.value["preferred_backup_window"]
-  skip_final_snapshot     = each.value["skip_final_snapshot"]
-  vpc_id                  = local.vpc_id
-  sg-ingress-cidr         = local.subnets-apps-cidr
-  instance_class          = each.value["instance_class"]
-}
-
-module "rds" {
-  for_each = var.rds_mysql
-
-  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
-  tags                    = var.tags
-  env                     = var.env
-  subnets_ids             = local.db-ids
-  vpc_id                  = local.vpc_id
-  sg-ingress-cidr         = local.subnets-apps-cidr
-  sg_port                 = each.value["sg_port"]
-  family                  = each.value["family"]
-  backup_retention_period = each.value["backup_retention_period"]
-  preferred_backup_window = each.value["preferred_backup_window"]
-  engine_version          = each.value["engine_version"]
-  engine                  = each.value["engine"]
-  skip_final_snapshot     = each.value["skip_final_snapshot"]
-
-}
 
 
 output "vpc" {
