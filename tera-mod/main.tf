@@ -78,15 +78,19 @@ module "to_vpc" {
 
 
 module "rabbitmq" {
-  source              = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
-  for_each            = var.rabbitmq
+  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
+  for_each = var.rabbitmq
+
+  tags                = var.tags
   env                 = var.env
   vpc_id              = local.vpc_id
   sg-ingress-cidr     = local.subnets-apps-cidr
   port                = each.value["port"]
   sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
   instance_type       = each.value["instance_type"]
-  subnet_id         = local.db-ids
+  subnet_id           = local.db-ids
+
+
 }
 
 
