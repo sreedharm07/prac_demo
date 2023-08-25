@@ -86,7 +86,7 @@ module "rabbitmq" {
   port                = each.value["port"]
   sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
   instance_type       = each.value["instance_type"]
-  subnet_ids          = local.db-ids
+  subnet_id         = local.db-ids
 }
 
 
