@@ -85,5 +85,6 @@ rabbitmq = {
   main = {
     port                = 5672
     sg-ssh-ingress-cidr = "172.31.43.79/16"
+    instance_type       = "t3.micro"
   }
 }
