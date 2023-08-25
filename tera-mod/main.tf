@@ -61,22 +61,33 @@ module "to_vpc" {
 #  skip_final_snapshot     = each.value["skip_final_snapshot"]
 #}
 
-module "redis" {
-  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
-  for_each        = var.redis
-  subnet_ids      = local.db-ids
-  family          = each.value["family"]
-  vpc_id          = local.vpc_id
-  port            = each.value["port"]
-  sg-ingress-cidr = local.subnets-apps-cidr
-  engine          = each.value["engine"]
-  engine_version  = each.value["engine_version"]
-  node_type       = each.value["node_type"]
-  num_cache_nodes = each.value["num_cache_nodes"]
+#module "redis" {
+#  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
+#  for_each        = var.redis
+#  subnet_ids      = local.db-ids
+#  family          = each.value["family"]
+#  vpc_id          = local.vpc_id
+#  port            = each.value["port"]
+#  sg-ingress-cidr = local.subnets-apps-cidr
+#  engine          = each.value["engine"]
+#  engine_version  = each.value["engine_version"]
+#  node_type       = each.value["node_type"]
+#  num_cache_nodes = each.value["num_cache_nodes"]
+#
+#}
 
+
+module "rabbitmq" {
+  source              = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
+  for_each            = var.rabbitmq
+  env                 = var.env
+  vpc_id              = local.vpc_id
+  sg-ingress-cidr     = local.subnets-apps-cidr
+  port                = each.value["port"]
+  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
+  instance_type       = each.value["instance_type"]
+  subnet_ids          = local.db-ids
 }
-
-
 
 
 output "vpc" {

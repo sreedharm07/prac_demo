@@ -80,3 +80,10 @@ redis= {
     num_cache_nodes = 1
   }
 }
+
+rabbitmq = {
+  main = {
+    port                = 5672
+    sg-ssh-ingress-cidr = "172.31.43.79/16"
+  }
+}

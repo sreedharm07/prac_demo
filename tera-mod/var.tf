@@ -9,3 +9,5 @@ variable "docdb" {}
 variable "rds_mysql" {}
 
 variable "redis" {}
+
+variable "rabbitmq" {}
