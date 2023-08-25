@@ -93,17 +93,19 @@ module "to_vpc" {
 
 
 module "apps" {
-  source     = "git::https://github.com/sreedharm07/tf-apps.git"
-  for_each   = var.apps
+  source   = "git::https://github.com/sreedharm07/tf-apps.git"
+  for_each = var.apps
 
-  components = each.key
+  components    = each.key
+  instance_type = each.value["instance_type"]
+  image_id      = each.value["image_id"]
 
   env                 = var.env
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
 
-  vpc_id              = local.vpc_id
-  sg-ingress-cidr     = local.subnets-apps-cidr
+  vpc_id          = local.vpc_id
+  sg-ingress-cidr = local.subnets-apps-cidr
 
-
+  subnet_ids=local.subnets-ids
 }
