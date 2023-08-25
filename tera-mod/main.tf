@@ -77,23 +77,33 @@ module "to_vpc" {
 #}
 
 
-module "rabbitmq" {
-  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
-  for_each = var.rabbitmq
+#module "rabbitmq" {
+#  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
+#  for_each = var.rabbitmq
+#
+#  tags                = var.tags
+#  env                 = var.env
+#  vpc_id              = local.vpc_id
+#  sg-ingress-cidr     = local.subnets-apps-cidr
+#  port                = each.value["port"]
+#  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
+#  instance_type       = each.value["instance_type"]
+#  subnet_id           = local.db-ids
+#}
 
-  tags                = var.tags
+
+module "apps" {
+  source     = "git::https://github.com/sreedharm07/tf-apps.git"
+  for_each   = var.apps
+
+  components = each.key
+
   env                 = var.env
+  tags                = var.tags
+  sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
+
   vpc_id              = local.vpc_id
   sg-ingress-cidr     = local.subnets-apps-cidr
-  port                = each.value["port"]
-  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
-  instance_type       = each.value["instance_type"]
-  subnet_id           = local.db-ids
 
 
-}
-
-
-output "vpc" {
-  value = local.vpc_id
 }

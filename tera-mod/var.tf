@@ -11,3 +11,6 @@ variable "rds_mysql" {}
 variable "redis" {}
 
 variable "rabbitmq" {}
+
+variable "apps" {}
+variable "sg-ssh-ingress-cidr" {}

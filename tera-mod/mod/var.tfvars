@@ -81,10 +81,19 @@ redis= {
   }
 }
 
+
+sg-ssh-ingress-cidr= "172.31.43.79/32"
 rabbitmq = {
   main = {
     port                = 5672
     sg-ssh-ingress-cidr = "172.31.43.79/32"
     instance_type       = "t2.micro"
+  }
+}
+
+apps={
+  forntend={
+
+
   }
 }
