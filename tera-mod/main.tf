@@ -110,6 +110,5 @@ module "apps" {
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
-
   subnet_ids = local.subnets-ids
 }
