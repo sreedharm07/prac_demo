@@ -96,9 +96,13 @@ module "apps" {
   source   = "git::https://github.com/sreedharm07/tf-apps.git"
   for_each = var.apps
 
-  components    = each.key
-  instance_type = each.value["instance_type"]
-  image_id      = each.value["image_id"]
+
+  components       = each.key
+  instance_type    = each.value["instance_type"]
+  image_id         = each.value["image_id"]
+  desired_capacity = each.value["desired_capacity"]
+  max_size         = each.value["max_size"]
+  min_size         = each.value["min_size"]
 
   env                 = var.env
   tags                = var.tags
@@ -107,5 +111,5 @@ module "apps" {
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
 
-  subnet_ids=local.subnets-ids
+  subnet_ids = local.subnets-ids
 }
