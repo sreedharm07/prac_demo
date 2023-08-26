@@ -112,5 +112,7 @@ module "apps" {
   sg-ingress-cidr = local.subnets-apps-cidr
   subnet_ids = local.subnets-ids
   dns_name=local.dns_name
+  listner=local.listner
+  priority=var.priority
 }
 
