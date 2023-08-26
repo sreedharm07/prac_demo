@@ -103,6 +103,7 @@ module "apps" {
   desired_capacity = each.value["desired_capacity"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
+  priority        = each.value["priority"]
 
   env                 = var.env
   tags                = var.tags
@@ -110,9 +111,7 @@ module "apps" {
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
-  subnet_ids = local.subnets-ids
-  dns_name=local.dns_name
-  listner=local.listner
-  priority=var.priority
+  subnet_ids      = local.subnets-ids
+  dns_name        = local.dns_name
+  listner         = local.listner
 }
-
