@@ -104,6 +104,7 @@ module "apps" {
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
   priority        = each.value["priority"]
+  port= each.value["port"]
 
   env                 = var.env
   tags                = var.tags
