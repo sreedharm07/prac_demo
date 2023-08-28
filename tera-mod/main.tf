@@ -65,6 +65,7 @@ module "redis" {
   source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
   for_each        = var.redis
   env=var.env
+  tags=var.tags
   subnet_ids      = local.db-ids
   family          = each.value["family"]
   vpc_id          = local.vpc_id
