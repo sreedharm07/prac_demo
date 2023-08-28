@@ -20,7 +20,7 @@ vpc= {
 
 
 default_vpc_id="vpc-0a3c5f7ee27b6f4c9"
-default_vpc_cidr="172.31.94.191/16"
+default_vpc_cidr="172.31.0.0/16"
 vpc_default_id="rtb-07cea716b496e4fc7"
 
 tags= {
@@ -35,7 +35,7 @@ alb= {
   private = {
     internal   = "true"
     lb-type    = "application"
-    cidr-block = ["172.31.94.191/16", "10.0.0.0/16"]
+    cidr-block = ["172.31.0.0/16", "10.0.0.0/16"]
     sg-port    = "80"
   }
 
