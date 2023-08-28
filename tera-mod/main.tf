@@ -107,7 +107,6 @@ module "apps" {
   min_size         = each.value["min_size"]
   priority         = each.value["priority"]
   port             = each.value["port"]
-  public_listner  = each.value["public_listner"]
 
 
   env                 = var.env
@@ -122,4 +121,6 @@ module "apps" {
   dns_name        = local.dns_name
   listner         = local.listner
   dns_public_name = local.dns_public_name
+  public_listner  = local.public_listner
+
 }
