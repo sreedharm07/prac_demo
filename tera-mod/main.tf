@@ -117,4 +117,5 @@ module "apps" {
   subnet_ids      = local.subnets-ids
   dns_name        = local.dns_name
   listner         = local.listner
+  dns_public_name=local.dns_public_name
 }
