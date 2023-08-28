@@ -11,4 +11,6 @@ locals {
   dns_public_name= lookup(lookup(lookup(module.alb,"public",null ),"alb",null),"dns_name",null)
 
   listner= lookup(lookup(lookup(module.alb,"private",null ),"listner",null),"arn",null)
+  public_listner= lookup(lookup(lookup(module.alb,"public",null ),"listner",null),"arn",null)
+
 }

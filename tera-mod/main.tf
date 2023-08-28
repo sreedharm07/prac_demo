@@ -105,17 +105,21 @@ module "apps" {
   desired_capacity = each.value["desired_capacity"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
-  priority        = each.value["priority"]
-  port= each.value["port"]
+  priority         = each.value["priority"]
+  port             = each.value["port"]
+  public_listner  = each.value["public_listner"]
+
 
   env                 = var.env
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
+  default_vpc     = var.default_vpc_id
+
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
   subnet_ids      = local.subnets-ids
   dns_name        = local.dns_name
   listner         = local.listner
-  dns_public_name=local.dns_public_name
+  dns_public_name = local.dns_public_name
 }
