@@ -112,7 +112,7 @@ module "apps" {
   env                 = var.env
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
-  default_vpc     = var.default_vpc_id
+  default_vpc         = var.default_vpc_id
 
 
   vpc_id          = local.vpc_id
