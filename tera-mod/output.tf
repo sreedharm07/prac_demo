@@ -1,3 +1,3 @@
-output "vpc" {
-  value = module.apps
-}
+#output "vpc" {
+#  value = module.apps
+#}
