@@ -1,3 +1,3 @@
 output "vpc" {
-  value = module.alb
+  value = module.apps
 }
