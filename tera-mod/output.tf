@@ -1,3 +1,3 @@
 output "vpc" {
-  value = module.apps
+  value = local.dns_name
 }
