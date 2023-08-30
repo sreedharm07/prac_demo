@@ -95,6 +95,7 @@ module "rabbitmq" {
 
 
 module "apps" {
+  depends_on = [module.alb ,module.to_vpc,module.docdb,module.rabbitmq, module.redis, module.rds, mod]
   source   = "git::https://github.com/sreedharm07/tf-apps.git"
   for_each = var.apps
 
