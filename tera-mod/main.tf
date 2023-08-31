@@ -114,7 +114,7 @@ module "apps" {
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
   default_vpc         = var.default_vpc_id
-
+  parameters=var.parameters
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
@@ -123,5 +123,4 @@ module "apps" {
   listner         = local.listner
   dns_public_name = local.dns_public_name
   public_listner  = local.public_listner
-
 }

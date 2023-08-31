@@ -100,6 +100,7 @@ apps= {
     min_size         = 1
     priority         = 1
     port             = 80
+    parameters       = []
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -109,6 +110,7 @@ apps= {
     min_size         = 1
     priority         = 2
     port             = 8080
+    parameters       = ["db"]
   }
   user = {
     instance_type    = "t3.micro"
@@ -118,6 +120,7 @@ apps= {
     min_size         = 1
     priority         = 3
     port             = 8080
+    parameters       = ["db"]
   }
   cart = {
     instance_type    = "t3.micro"
@@ -127,6 +130,7 @@ apps= {
     min_size         = 1
     priority         = 4
     port             = 8080
+    parameters       = []
   }
   payment = {
     instance_type    = "t3.micro"
@@ -136,6 +140,7 @@ apps= {
     min_size         = 1
     priority         = 5
     port             = 8080
+    parameters       = []
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -145,6 +150,7 @@ apps= {
     min_size         = 1
     priority         = 6
     port             = 8080
+    parameters       = []
   }
   dispatch = {
     instance_type    = "t3.micro"
@@ -154,5 +160,6 @@ apps= {
     min_size         = 1
     priority         = 7
     port             = 8080
+    parameters       = []
   }
 }
