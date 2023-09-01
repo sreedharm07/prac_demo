@@ -95,9 +95,9 @@ module "rabbitmq" {
 
 
 module "apps" {
-  depends_on = [module.alb ,module.to_vpc,module.docdb,module.rabbitmq, module.redis, module.rds]
-  source   = "git::https://github.com/sreedharm07/tf-apps.git"
-  for_each = var.apps
+  depends_on = [module.alb, module.to_vpc, module.docdb, module.rabbitmq, module.redis, module.rds]
+  source     = "git::https://github.com/sreedharm07/tf-apps.git"
+  for_each   = var.apps
 
 
   components       = each.key
@@ -114,7 +114,7 @@ module "apps" {
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
   default_vpc         = var.default_vpc_id
-  parameters=var.parameters
+  parameters          = var.parameters
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
