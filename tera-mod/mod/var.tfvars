@@ -160,6 +160,6 @@ apps= {
     min_size         = 1
     priority         = 7
     port             = 8080
-    parameters       = []
+    parameters       = ["dispatch"]
   }
 }
