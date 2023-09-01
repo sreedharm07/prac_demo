@@ -140,7 +140,7 @@ apps= {
     min_size         = 1
     priority         = 5
     port             = 8080
-    parameters       = []
+    parameters       = ["rabbitmq"]
   }
   shipping = {
     instance_type    = "t3.micro"
