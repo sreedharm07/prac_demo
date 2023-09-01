@@ -108,13 +108,14 @@ module "apps" {
   min_size         = each.value["min_size"]
   priority         = each.value["priority"]
   port             = each.value["port"]
+  parameters       = each.value["parameters"]
+
 
 
   env                 = var.env
   tags                = var.tags
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
   default_vpc         = var.default_vpc_id
-  parameters          = var.parameters
 
   vpc_id          = local.vpc_id
   sg-ingress-cidr = local.subnets-apps-cidr
