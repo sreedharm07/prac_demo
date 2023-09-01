@@ -14,4 +14,3 @@ variable "rabbitmq" {}
 
 variable "apps" {}
 variable "sg-ssh-ingress-cidr" {}
-variable "parameters" {}
