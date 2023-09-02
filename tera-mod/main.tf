@@ -64,8 +64,8 @@ module "rds" {
 module "redis" {
   source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
   for_each        = var.redis
-  env=var.env
-  tags=var.tags
+  env             = var.env
+  tags            = var.tags
   subnet_ids      = local.db-ids
   family          = each.value["family"]
   vpc_id          = local.vpc_id
@@ -75,7 +75,6 @@ module "redis" {
   engine_version  = each.value["engine_version"]
   node_type       = each.value["node_type"]
   num_cache_nodes = each.value["num_cache_nodes"]
-
 }
 
 
@@ -109,7 +108,7 @@ module "apps" {
   priority         = each.value["priority"]
   port             = each.value["port"]
   parameters       = each.value["parameters"]
-
+  sg-prometheus-cidr=each.value["sg-prometheus-cidr"]
 
 
   env                 = var.env
