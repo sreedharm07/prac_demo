@@ -24,77 +24,77 @@ module "alb" {
   sg-port    = each.value["sg-port"]
   subnets    = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
 }
-
-module "docdb" {
-  source = "git::https://github.com/sreedharm07/tf-docdb.git"
-  tags   = var.tags
-  env    = var.env
-
-  for_each                = var.docdb
-  subnet_ids              = local.db-ids
-  engine_version          = each.value["engine_version"]
-  master_username         = data.aws_ssm_parameter.username.value
-  master_password         = data.aws_ssm_parameter.password.value
-  backup_retention_period = each.value["backup_retention_period"]
-  preferred_backup_window = each.value["preferred_backup_window"]
-  skip_final_snapshot     = each.value["skip_final_snapshot"]
-  vpc_id                  = local.vpc_id
-  sg-ingress-cidr         = local.subnets-apps-cidr
-  instance_class          = each.value["instance_class"]
-}
-
-module "rds" {
-  for_each = var.rds_mysql
-
-  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
-  tags                    = var.tags
-  env                     = var.env
-  subnets_ids             = local.db-ids
-  vpc_id                  = local.vpc_id
-  sg-ingress-cidr         = local.subnets-apps-cidr
-  sg_port                 = each.value["sg_port"]
-  family                  = each.value["family"]
-  backup_retention_period = each.value["backup_retention_period"]
-  preferred_backup_window = each.value["preferred_backup_window"]
-  engine_version          = each.value["engine_version"]
-  engine                  = each.value["engine"]
-  skip_final_snapshot     = each.value["skip_final_snapshot"]
-}
-
-module "redis" {
-  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
-  for_each        = var.redis
-  env             = var.env
-  tags            = var.tags
-  subnet_ids      = local.db-ids
-  family          = each.value["family"]
-  vpc_id          = local.vpc_id
-  port            = each.value["port"]
-  sg-ingress-cidr = local.subnets-apps-cidr
-  engine          = each.value["engine"]
-  engine_version  = each.value["engine_version"]
-  node_type       = each.value["node_type"]
-  num_cache_nodes = each.value["num_cache_nodes"]
-}
-
-
-module "rabbitmq" {
-  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
-  for_each = var.rabbitmq
-
-  tags                = var.tags
-  env                 = var.env
-  vpc_id              = local.vpc_id
-  sg-ingress-cidr     = local.subnets-apps-cidr
-  port                = each.value["port"]
-  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
-  instance_type       = each.value["instance_type"]
-  subnet_id           = local.db-ids
-}
+#
+#module "docdb" {
+#  source = "git::https://github.com/sreedharm07/tf-docdb.git"
+#  tags   = var.tags
+#  env    = var.env
+#
+#  for_each                = var.docdb
+#  subnet_ids              = local.db-ids
+#  engine_version          = each.value["engine_version"]
+#  master_username         = data.aws_ssm_parameter.username.value
+#  master_password         = data.aws_ssm_parameter.password.value
+#  backup_retention_period = each.value["backup_retention_period"]
+#  preferred_backup_window = each.value["preferred_backup_window"]
+#  skip_final_snapshot     = each.value["skip_final_snapshot"]
+#  vpc_id                  = local.vpc_id
+#  sg-ingress-cidr         = local.subnets-apps-cidr
+#  instance_class          = each.value["instance_class"]
+#}
+#
+#module "rds" {
+#  for_each = var.rds_mysql
+#
+#  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
+#  tags                    = var.tags
+#  env                     = var.env
+#  subnets_ids             = local.db-ids
+#  vpc_id                  = local.vpc_id
+#  sg-ingress-cidr         = local.subnets-apps-cidr
+#  sg_port                 = each.value["sg_port"]
+#  family                  = each.value["family"]
+#  backup_retention_period = each.value["backup_retention_period"]
+#  preferred_backup_window = each.value["preferred_backup_window"]
+#  engine_version          = each.value["engine_version"]
+#  engine                  = each.value["engine"]
+#  skip_final_snapshot     = each.value["skip_final_snapshot"]
+#}
+#
+#module "redis" {
+#  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
+#  for_each        = var.redis
+#  env             = var.env
+#  tags            = var.tags
+#  subnet_ids      = local.db-ids
+#  family          = each.value["family"]
+#  vpc_id          = local.vpc_id
+#  port            = each.value["port"]
+#  sg-ingress-cidr = local.subnets-apps-cidr
+#  engine          = each.value["engine"]
+#  engine_version  = each.value["engine_version"]
+#  node_type       = each.value["node_type"]
+#  num_cache_nodes = each.value["num_cache_nodes"]
+#}
+#
+#
+#module "rabbitmq" {
+#  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
+#  for_each = var.rabbitmq
+#
+#  tags                = var.tags
+#  env                 = var.env
+#  vpc_id              = local.vpc_id
+#  sg-ingress-cidr     = local.subnets-apps-cidr
+#  port                = each.value["port"]
+#  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
+#  instance_type       = each.value["instance_type"]
+#  subnet_id           = local.db-ids
+#}
 
 
 module "apps" {
-  depends_on = [module.alb, module.to_vpc, module.docdb, module.rabbitmq, module.redis, module.rds]
+#  depends_on = [module.alb, module.to_vpc, module.docdb, module.rabbitmq, module.redis, module.rds]
   source     = "git::https://github.com/sreedharm07/tf-apps.git"
   for_each   = var.apps
 
@@ -108,7 +108,7 @@ module "apps" {
   priority         = each.value["priority"]
   port             = each.value["port"]
   parameters       = each.value["parameters"]
-  sg-prometheus-cidr=each.value["sg-prometheus-cidr"]
+  sg-prometheus-cidr=var.sg-prometheus-cidr
 
 
   env                 = var.env

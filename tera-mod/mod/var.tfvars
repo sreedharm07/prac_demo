@@ -18,7 +18,7 @@ vpc= {
   }
 }
 
-#sg-prometheus-cidr=  " "
+sg-prometheus-cidr=  "172.31.44.187/32 "
 
 default_vpc_id="vpc-0a3c5f7ee27b6f4c9"
 default_vpc_cidr="172.31.0.0/16"
@@ -164,5 +164,6 @@ apps= {
     parameters       = ["dispatch"]
   }
 }
+
 
 #sample
