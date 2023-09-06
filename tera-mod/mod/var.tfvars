@@ -102,6 +102,7 @@ apps= {
     priority         = 1
     port             = 80
     parameters       = []
+    tags             = { nginx-monitor = "yes" }
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -112,6 +113,7 @@ apps= {
     priority         = 2
     port             = 8080
     parameters       = ["db"]
+    tags             = {}
   }
   user = {
     instance_type    = "t3.micro"
@@ -122,7 +124,9 @@ apps= {
     priority         = 3
     port             = 8080
     parameters       = ["db"]
+    tags             = {}
   }
+
   cart = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
@@ -132,6 +136,8 @@ apps= {
     priority         = 4
     port             = 8080
     parameters       = []
+    tags             = {}
+
   }
   payment = {
     instance_type    = "t3.micro"
@@ -142,6 +148,8 @@ apps= {
     priority         = 5
     port             = 8080
     parameters       = ["rabbitmq"]
+    tags             = {}
+
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -152,6 +160,8 @@ apps= {
     priority         = 6
     port             = 8080
     parameters       = []
+    tags             = {}
+
   }
   dispatch = {
     instance_type    = "t3.micro"
@@ -162,8 +172,9 @@ apps= {
     priority         = 7
     port             = 8080
     parameters       = ["dispatch"]
+    tags             = {}
+
   }
 }
 
 
-#sample

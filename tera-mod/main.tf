@@ -112,7 +112,7 @@ module "apps" {
 
 
   env                 = var.env
-  tags                = var.tags
+  tags                = merge(var.tags, each.value["tags"]
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
   default_vpc         = var.default_vpc_id
 
