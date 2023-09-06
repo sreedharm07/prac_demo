@@ -94,25 +94,25 @@ module "alb" {
 
 
 module "apps" {
-#  depends_on = [module.alb, module.to_vpc, module.docdb, module.rabbitmq, module.redis, module.rds]
-  source     = "git::https://github.com/sreedharm07/tf-apps.git"
-  for_each   = var.apps
+  #  depends_on = [module.alb, module.to_vpc, module.docdb, module.rabbitmq, module.redis, module.rds]
+  source   = "git::https://github.com/sreedharm07/tf-apps.git"
+  for_each = var.apps
 
 
-  components       = each.key
-  instance_type    = each.value["instance_type"]
-  image_id         = each.value["image_id"]
-  desired_capacity = each.value["desired_capacity"]
-  max_size         = each.value["max_size"]
-  min_size         = each.value["min_size"]
-  priority         = each.value["priority"]
-  port             = each.value["port"]
-  parameters       = each.value["parameters"]
-  sg-prometheus-cidr=var.sg-prometheus-cidr
+  components         = each.key
+  instance_type      = each.value["instance_type"]
+  image_id           = each.value["image_id"]
+  desired_capacity   = each.value["desired_capacity"]
+  max_size           = each.value["max_size"]
+  min_size           = each.value["min_size"]
+  priority           = each.value["priority"]
+  port               = each.value["port"]
+  parameters         = each.value["parameters"]
+  sg-prometheus-cidr = var.sg-prometheus-cidr
 
 
   env                 = var.env
-  tags                = merge(var.tags, each.value["tags"]
+  tags                = merge(var.tags, each.value["tags"])
   sg-ssh-ingress-cidr = var.sg-ssh-ingress-cidr
   default_vpc         = var.default_vpc_id
 
