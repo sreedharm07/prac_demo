@@ -152,7 +152,7 @@ apps= {
 
   }
   shipping = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-03265a0778a880afb"
     desired_capacity = 1
     max_size         = 3
