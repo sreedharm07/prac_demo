@@ -101,7 +101,7 @@ apps= {
     min_size         = 1
     priority         = 1
     port             = 80
-    parameters       = []
+    parameters       = ["nexus"]
     tags             = { nginx-monitor = "yes" }
   }
   catalogue = {
@@ -112,7 +112,7 @@ apps= {
     min_size         = 1
     priority         = 2
     port             = 8080
-    parameters       = ["db"]
+    parameters       = ["db", "nexus"]
     tags             = {}
   }
   user = {
@@ -123,7 +123,7 @@ apps= {
     min_size         = 1
     priority         = 3
     port             = 8080
-    parameters       = ["db"]
+    parameters       = ["db","nexus"]
     tags             = {}
   }
 
@@ -135,7 +135,7 @@ apps= {
     min_size         = 1
     priority         = 4
     port             = 8080
-    parameters       = []
+    parameters       = ["nexus"]
     tags             = {}
 
   }
@@ -147,7 +147,7 @@ apps= {
     min_size         = 1
     priority         = 5
     port             = 8080
-    parameters       = ["rabbitmq"]
+    parameters       = ["rabbitmq" , "nexus"]
     tags             = {}
 
   }
@@ -159,7 +159,7 @@ apps= {
     min_size         = 1
     priority         = 6
     port             = 8080
-    parameters       = []
+    parameters       = ["nexus"]
     tags             = {}
 
   }
@@ -171,7 +171,7 @@ apps= {
     min_size         = 1
     priority         = 7
     port             = 8080
-    parameters       = ["dispatch"]
+    parameters       = ["dispatch", "nexus"]
     tags             = {}
 
   }
