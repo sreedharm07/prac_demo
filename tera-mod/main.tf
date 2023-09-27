@@ -13,16 +13,17 @@ module "to_vpc" {
 }
 
 module "alb" {
-  source     = "git::https://github.com/sreedharm07/tera-lb.git"
-  for_each   = var.alb
-  lb         = each.value["internal"]
-  lb-type    = each.value["lb-type"]
-  tags       = var.tags
-  env        = var.env
-  vpc_id     = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  cidr-block = each.value["cidr-block"]
-  sg-port    = each.value["sg-port"]
-  subnets    = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
+  source              = "git::https://github.com/sreedharm07/tera-lb.git"
+  for_each            = var.alb
+  lb                  = each.value["internal"]
+  lb-type             = each.value["lb-type"]
+  tags                = var.tags
+  env                 = var.env
+  vpc_id              = each.value["internal"] ? local.vpc_id : var.default_vpc_id
+  cidr-block          = each.value["cidr-block"]
+  sg-port             = each.value["sg-port"]
+  subnets             = each.value["internal"] ? local.subnets-ids : data.aws_subnets.example.ids
+  certificate_arn_alb =var.certificate_arn_alb
 }
 
 module "docdb" {

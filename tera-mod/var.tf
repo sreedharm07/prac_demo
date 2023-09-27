@@ -15,3 +15,4 @@ variable "rabbitmq" {}
 variable "apps" {}
 variable "sg-ssh-ingress-cidr" {}
 variable "sg-prometheus-cidr" {}
+variable "certificate_arn_alb" {}

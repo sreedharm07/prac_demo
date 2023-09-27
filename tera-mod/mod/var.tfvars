@@ -31,6 +31,7 @@ tags= {
 }
 env="dev"
 
+certificate_arn_alb=""
 
 alb= {
   private = {
