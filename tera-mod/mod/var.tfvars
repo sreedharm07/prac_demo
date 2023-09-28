@@ -84,11 +84,11 @@ redis= {
 }
 
 
-sg-ssh-ingress-cidr= "172.31.88.78/32"
+sg-ssh-ingress-cidr= "172.31.16.231/32"
 rabbitmq = {
   main = {
     port                = 5672
-    sg-ssh-ingress-cidr = "172.31.88.78/32"
+    sg-ssh-ingress-cidr = "172.31.16.231/32"
     instance_type       = "t3.micro"
   }
 }
