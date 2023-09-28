@@ -45,7 +45,7 @@ alb= {
     internal   = "false"
     lb-type    = "application"
     cidr-block = ["0.0.0.0/0"]
-    sg-port    = "80"
+    sg-port    = "443"
   }
 }
 
