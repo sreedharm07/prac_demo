@@ -126,6 +126,7 @@ module "apps" {
   listner         = local.listner
   dns_public_name = local.dns_public_name
   public_listner  = local.public_listner
+  kms_key_id          = var.kms_key_id
 }
 
 resource "aws_instance" "load-runner" {
