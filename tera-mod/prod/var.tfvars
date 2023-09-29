@@ -29,7 +29,7 @@ tags= {
   created_by   = "terraform"
   landing_zone = "xyz"
 }
-env="dev"
+env="prod"
 
 certificate_arn_alb="arn:aws:acm:us-east-1:120752001195:certificate/2a001ae5-6779-4bd2-b99f-e40d9b274713"
 
