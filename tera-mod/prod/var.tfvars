@@ -1,18 +1,18 @@
 vpc= {
   main = {
-    cidr    = "10.0.0.0/16"
+    cidr    = "10.50.0.0/16"
     subnets = {
       public = {
-        public1 = { cidr = "10.0.0.0/24", az = "us-east-1a" }
-        public2 = { cidr = "10.0.1.0/24", az = "us-east-1b" }
+        public1 = { cidr = "10.50.0.0/24", az = "us-east-1a" }
+        public2 = { cidr = "10.50.1.0/24", az = "us-east-1b" }
       }
       app = {
-        app1 = { cidr = "10.0.2.0/24", az = "us-east-1a" }
-        app2 = { cidr = "10.0.3.0/24", az = "us-east-1b" }
+        app1 = { cidr = "10.50.2.0/24", az = "us-east-1a" }
+        app2 = { cidr = "10.50.3.0/24", az = "us-east-1b" }
       }
       db = {
-        db1 = { cidr = "10.0.4.0/24", az = "us-east-1a" }
-        db2 = { cidr = "10.0.5.0/24", az = "us-east-1b" }
+        db1 = { cidr = "10.50.4.0/24", az = "us-east-1a" }
+        db2 = { cidr = "10.50.5.0/24", az = "us-east-1b" }
       }
     }
   }
@@ -37,7 +37,7 @@ alb= {
   private = {
     internal   = "true"
     lb-type    = "application"
-    cidr-block = ["172.31.0.0/16", "10.0.0.0/16"]
+    cidr-block = ["172.31.0.0/16", "10.50.0.0/16"]
     sg-port    = "80"
   }
 
@@ -97,9 +97,9 @@ apps= {
   frontend = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 1
     port             = 80
     parameters       = ["nexus"]
@@ -108,9 +108,9 @@ apps= {
   catalogue = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 2
     port             = 8080
     parameters       = ["db", "nexus"]
@@ -119,9 +119,9 @@ apps= {
   user = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 3
     port             = 8080
     parameters       = ["db","nexus"]
@@ -131,9 +131,9 @@ apps= {
   cart = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 4
     port             = 8080
     parameters       = ["nexus"]
@@ -143,9 +143,9 @@ apps= {
   payment = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 5
     port             = 8080
     parameters       = ["rabbitmq" , "nexus"]
@@ -155,9 +155,9 @@ apps= {
   shipping = {
     instance_type    = "t3.small"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 6
     port             = 8080
     parameters       = ["nexus"]
@@ -167,9 +167,9 @@ apps= {
   dispatch = {
     instance_type    = "t3.micro"
     image_id         = "ami-03265a0778a880afb"
-    desired_capacity = 1
-    max_size         = 3
-    min_size         = 1
+    desired_capacity = 2
+    max_size         = 10
+    min_size         = 2
     priority         = 7
     port             = 8080
     parameters       = ["dispatch", "nexus"]
