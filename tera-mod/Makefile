@@ -1,6 +1,6 @@
 dev:
 	rm -rf .terraform
-	terraform init
+	terraform init -backend-config=env-dev/state.tfvars
 	terraform apply -auto-approve -var-file=dev/var.tfvars
 
 destroy:
