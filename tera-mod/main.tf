@@ -1,15 +1,14 @@
 module "to_vpc" {
   source = "git::https://github.com/sreedharm07/tera-vpc.git"
 
- for_each = var.vpc
-  cidr   = each.value["cidr"]
-  subnets = each.value["subnets"]
-  default_vpc_id=var.default_vpc_id
-  default_vpc_cidr=var.default_vpc_cidr
-  vpc_default_id=var.vpc_default_id
-  tags=  var.tags
-  env =var.env
-
+  for_each         = var.vpc
+  cidr             = each.value["cidr"]
+  subnets          = each.value["subnets"]
+  default_vpc_id   = var.default_vpc_id
+  default_vpc_cidr = var.default_vpc_cidr
+  vpc_default_id   = var.vpc_default_id
+  tags             = var.tags
+  env              = var.env
 }
 
 module "alb" {
@@ -127,4 +126,13 @@ module "apps" {
   listner         = local.listner
   dns_public_name = local.dns_public_name
   public_listner  = local.public_listner
+}
+
+resource "aws_instance" "load-runner" {
+ ami = data.aws_ami.ami.id
+  vpc_security_group_ids = ["sg-078ca100546627bbf"]
+  instance_type = "t3.medium"
+  tags = {
+   Name = "load-runner"
+  }
 }
