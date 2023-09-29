@@ -42,6 +42,7 @@ module "docdb" {
   vpc_id                  = local.vpc_id
   sg-ingress-cidr         = local.subnets-apps-cidr
   instance_class          = each.value["instance_class"]
+  kms_key_id = var.kms_key_id
 }
 
 module "rds" {
@@ -60,6 +61,7 @@ module "rds" {
   engine_version          = each.value["engine_version"]
   engine                  = each.value["engine"]
   skip_final_snapshot     = each.value["skip_final_snapshot"]
+  kms_key_id              = var.kms_key_id
 }
 
 module "redis" {
@@ -91,6 +93,7 @@ module "rabbitmq" {
   sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
   instance_type       = each.value["instance_type"]
   subnet_id           = local.db-ids
+  kms_key_id          = var.kms_key_id
 }
 
 
