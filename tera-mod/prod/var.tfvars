@@ -96,7 +96,7 @@ rabbitmq = {
 apps= {
   frontend = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -107,7 +107,7 @@ apps= {
   }
   catalogue = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -118,7 +118,7 @@ apps= {
   }
   user = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -130,7 +130,7 @@ apps= {
 
   cart = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -142,7 +142,7 @@ apps= {
   }
   payment = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -154,7 +154,7 @@ apps= {
   }
   shipping = {
     instance_type    = "t3.small"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
@@ -166,7 +166,7 @@ apps= {
   }
   dispatch = {
     instance_type    = "t3.micro"
-    image_id         = "ami-03265a0778a880afb"
+    image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
     min_size         = 2
