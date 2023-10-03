@@ -11,4 +11,3 @@ prod:
 	rm -rf .terraform
 	terraform init -backend-config=prod/state.tfvars
 	terraform apply -auto-approve -var-file=prod/var.tfvars
-#localhost
