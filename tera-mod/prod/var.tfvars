@@ -95,7 +95,7 @@ rabbitmq = {
 
 apps= {
   frontend = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
@@ -106,7 +106,7 @@ apps= {
     tags             = { nginx-monitor = "yes" }
   }
   catalogue = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
@@ -117,7 +117,7 @@ apps= {
     tags             = {}
   }
   user = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
@@ -129,7 +129,7 @@ apps= {
   }
 
   cart = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
@@ -141,7 +141,7 @@ apps= {
 
   }
   payment = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
@@ -165,7 +165,7 @@ apps= {
 
   }
   dispatch = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     image_id         = "ami-0899db80f06ad7854"
     desired_capacity = 2
     max_size         = 10
