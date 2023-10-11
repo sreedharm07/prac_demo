@@ -13,4 +13,4 @@ prodp:
 	terraform apply -auto-approve -var-file=prod/var.tfvars
 
 destroyp:
-	terraform destroy -auto-approve -var/file=prod/var.tfvars
+	terraform destroy -auto-approve -var-file=prod/var.tfvars
