@@ -129,11 +129,11 @@ module "apps" {
   kms_key_id          = var.kms_key_id
 }
 
-resource "aws_instance" "load-runner" {
- ami = data.aws_ami.ami.id
-  vpc_security_group_ids = ["sg-078ca100546627bbf"]
-  instance_type = "t3.medium"
-  tags = {
-   Name = "load-runner"
-  }
-}
+#resource "aws_instance" "load-runner" {
+# ami = data.aws_ami.ami.id
+#  vpc_security_group_ids = ["sg-0e0105b5980894a9b"]
+#  instance_type = "t3.medium"
+#  tags = {
+#   Name = "load-runner"
+#  }
+#}
