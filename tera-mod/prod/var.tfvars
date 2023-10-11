@@ -21,7 +21,7 @@ kms_key_id  = "arn:aws:kms:us-east-1:471200138067:key/bae3abd4-a2c2-4c1d-a0d3-6a
 #kms_key_id   = "arn:aws:kms:us-east-1:120752001195:key/90368eb1-f0ed-4e4f-bd9f-5c38abef1dd7"
 sg-prometheus-cidr=  "172.31.44.187/32"
 
-default_vpc_id="-vpc-00cc255899da00449"
+default_vpc_id="vpc-00cc255899da00449"
 default_vpc_cidr="172.31.0.0/16"
 vpc_default_id="rtb-07cea716b496e4fc7"
 
