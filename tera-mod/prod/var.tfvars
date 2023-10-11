@@ -23,7 +23,7 @@ sg-prometheus-cidr=  "172.31.44.187/32"
 
 default_vpc_id="vpc-00cc255899da00449"
 default_vpc_cidr="172.31.0.0/16"
-vpc_default_id="rtb-07cea716b496e4fc7"
+vpc_default_id="rtb-0957cb1702e7d8b3e"
 
 tags= {
   company      = "abc"
