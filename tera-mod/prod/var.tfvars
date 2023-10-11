@@ -32,7 +32,7 @@ tags= {
 }
 env="prod"
 
-certificate_arn_alb="arn:aws:acm:us-east-1:120752001195:certificate/2a001ae5-6779-4bd2-b99f-e40d9b274713"
+certificate_arn_alb="arn:aws:acm:us-east-1:471200138067:certificate/60d9b868-348a-44d9-ac28-60252f57f41e"
 
 alb= {
   private = {
