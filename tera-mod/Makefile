@@ -8,7 +8,6 @@ destroyd:
 	terraform destroy -auto-approve -var-file=dev/var.tfvars
 
 prodp:
-	git pull
 	rm -rf .terraform
 	terraform init -backend-config=prod/state.tfvars
 	terraform apply -auto-approve -var-file=prod/var.tfvars
