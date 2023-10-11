@@ -17,7 +17,7 @@ vpc= {
     }
   }
 }
-kms_key_id  = "arn:aws:kms:us-east-1:471200138067:key/bae3abd4-a2c2-4c1d-a0d3-6ad963860e3b"
+kms_key_id  = "arn:aws:kms:us-east-1:471200138067:key/7a0afb90-1768-4efb-9505-3610247b81e4"
 #kms_key_id   = "arn:aws:kms:us-east-1:120752001195:key/90368eb1-f0ed-4e4f-bd9f-5c38abef1dd7"
 sg-prometheus-cidr=  "172.31.44.187/32"
 
