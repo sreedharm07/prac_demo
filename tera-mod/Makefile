@@ -1,13 +1,16 @@
-dev:
+devd:
 	rm -rf .terraform
-	terraform init -backend-config=dev/state.tfvars
+	terraform init -backend=dev/state.tfvars
 	terraform apply -auto-approve -var-file=dev/var.tfvars
 
-destroy:
+destroyd:
 	terraform init
 	terraform destroy -auto-approve -var-file=dev/var.tfvars
 
-prod:
+prodp:
 	rm -rf .terraform
 	terraform init -backend-config=prod/state.tfvars
 	terraform apply -auto-approve -var-file=prod/var.tfvars
+
+destroyp:
+	terraform destroy auto-approve -var/file=prod/var.tfvars
