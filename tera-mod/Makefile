@@ -1,3 +1,5 @@
+default:
+	echo none
 devd:
 	rm -rf .terraform
 	terraform init -backend=dev/state.tfvars

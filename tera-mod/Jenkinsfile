@@ -1,0 +1,20 @@
+pipeline{
+  agent any
+
+options {
+  ansiColor('xterm')
+    }
+
+ parameters {
+            string(name: 'ENV', defaultValue: 'PROD', description: 'which environemnt to run ')
+            }
+
+  stages {
+
+      stage('terraform apply'){
+      steps {
+        sh 'make ${ENV}'
+      }
+      }
+  }
+}
