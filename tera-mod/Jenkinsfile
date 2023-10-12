@@ -13,7 +13,6 @@ options {
 
       stage('terraform apply'){
       steps {
-        dir('tera-mod'){
         sh 'make ${ENV}'
         }
       }
