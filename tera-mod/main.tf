@@ -185,6 +185,6 @@ resource "aws_security_group_rule" "https-to-eks" {
   security_group_id = module.eks.cluster_security_group_id
   to_port           = 443
   type              = "ingress"
-  cidr_blocks       = [ var.default_vpc_cidr ]
+  cidr_block       = local.subnets-apps-cidr
 }
 
