@@ -1,19 +1,19 @@
-pipeline{
-  agent any
+pipeline {
+    agent any
 
-options {
-  ansiColor('xterm')
+    options {
+        ansiColor('xterm')
     }
 
- parameters {
-            string(name: 'ENV', defaultValue: 'PROD', description: 'which environemnt to run ')
-            }
+    parameters {
+        string(name: 'ENV', defaultValue: 'PROD', description: 'which environemnt to run ')
+    }
 
-  stages {
-      stage('terraform apply'){
-      steps {
-        sh 'make ${ENV}' ./tera-mod
+    stages {
+        stage('terraform apply') {
+            steps {
+                sh 'make ${ENV} ./tera-mod'
             }
-      }
-}
+        }
+    }
 }
