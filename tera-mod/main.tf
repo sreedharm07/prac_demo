@@ -189,3 +189,7 @@ resource "aws_security_group_rule" "https-to-eks" {
 #  local.subnets-apps-cidr
 }
 
+output "local" {
+  value = local.subnets-apps-cidr
+}
+
