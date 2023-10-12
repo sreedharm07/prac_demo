@@ -10,11 +10,10 @@ options {
             }
 
   stages {
-
       stage('terraform apply'){
       steps {
         sh 'make ${ENV}' ./tera-mod
-        }
+            }
       }
-  }
+}
 }
