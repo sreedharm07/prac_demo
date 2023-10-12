@@ -13,6 +13,7 @@ options {
 
       stage('terraform apply'){
       steps {
+        sh 'cd tera-mod'
         sh 'make ${ENV}'
       }
       }
