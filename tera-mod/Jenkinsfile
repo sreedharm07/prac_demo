@@ -12,8 +12,11 @@ pipeline {
     stages {
         stage('terraform apply') {
             steps {
+               dir("tera-mod") {
                 sh './tera-mod make ${ENV}'
+                }
             }
         }
     }
 }
+
