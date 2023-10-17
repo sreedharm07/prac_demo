@@ -25,24 +25,24 @@ module "to_vpc" {
 #  certificate_arn_alb =var.certificate_arn_alb
 #}
 
-#module "docdb" {
-#  source = "git::https://github.com/sreedharm07/tf-docdb.git"
-#  tags   = var.tags
-#  env    = var.env
-#
-#  for_each                = var.docdb
-#  subnet_ids              = local.db-ids
-#  engine_version          = each.value["engine_version"]
-#  master_username         = data.aws_ssm_parameter.username.value
-#  master_password         = data.aws_ssm_parameter.password.value
-#  backup_retention_period = each.value["backup_retention_period"]
-#  preferred_backup_window = each.value["preferred_backup_window"]
-#  skip_final_snapshot     = each.value["skip_final_snapshot"]
-#  vpc_id                  = local.vpc_id
-#  sg-ingress-cidr         = local.subnets-apps-cidr
-#  instance_class          = each.value["instance_class"]
-#  kms_key_id = var.kms_key_id
-#}
+module "docdb" {
+  source = "git::https://github.com/sreedharm07/tf-docdb.git"
+  tags   = var.tags
+  env    = var.env
+
+  for_each                = var.docdb
+  subnet_ids              = local.db-ids
+  engine_version          = each.value["engine_version"]
+  master_username         = data.aws_ssm_parameter.username.value
+  master_password         = data.aws_ssm_parameter.password.value
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
+  vpc_id                  = local.vpc_id
+  sg-ingress-cidr         = local.subnets-apps-cidr
+  instance_class          = each.value["instance_class"]
+  kms_key_id = var.kms_key_id
+}
 #
 #module "rds" {
 #  for_each = var.rds_mysql
