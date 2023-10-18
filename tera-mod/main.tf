@@ -194,3 +194,47 @@ resource "aws_security_group_rule" "https-to-eks" {
 #  value = local.subnets-apps-cidr
 #}
 
+resource "aws_iam_role" "eks-role" {
+  name = "test_role"
+
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Federated": module.eks.oidc_provider_arn
+        },
+        "Action": "sts:AssumeRoleWithWebIdentity",
+        "Condition": {
+          "StringEquals": {
+            "${module.eks.oidc_provider}:aud": "sts.amazonaws.com"
+          }
+        }
+      }
+    ]
+  })
+  inline_policy {
+    name = "eks"
+
+    policy = jsonencode({
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "VisualEditor0",
+          "Effect": "Allow",
+          "Action": [
+            "kms:Decrypt",
+            "ssm:DescribeParameters",
+            "ssm:GetParameterHistory",
+            "ssm:GetParametersByPath",
+            "ssm:GetParameters",
+            "sts:AssumeRoleWithWebIdentity",
+            "ssm:GetParameter"
+          ],
+          "Resource": "*"
+        }
+      ]
+    })
+  }
+}
