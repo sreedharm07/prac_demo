@@ -63,21 +63,21 @@ module "docdb" {
 #  kms_key_id              = var.kms_key_id
 #}
 #
-#module "redis" {
-#  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
-#  for_each        = var.redis
-#  env             = var.env
-#  tags            = var.tags
-#  subnet_ids      = local.db-ids
-#  family          = each.value["family"]
-#  vpc_id          = local.vpc_id
-#  port            = each.value["port"]
-#  sg-ingress-cidr = local.subnets-apps-cidr
-#  engine          = each.value["engine"]
-#  engine_version  = each.value["engine_version"]
-#  node_type       = each.value["node_type"]
-#  num_cache_nodes = each.value["num_cache_nodes"]
-#}
+module "redis" {
+  source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
+  for_each        = var.redis
+  env             = var.env
+  tags            = var.tags
+  subnet_ids      = local.db-ids
+  family          = each.value["family"]
+  vpc_id          = local.vpc_id
+  port            = each.value["port"]
+  sg-ingress-cidr = local.subnets-apps-cidr
+  engine          = each.value["engine"]
+  engine_version  = each.value["engine_version"]
+  node_type       = each.value["node_type"]
+  num_cache_nodes = each.value["num_cache_nodes"]
+}
 #
 #
 #module "rabbitmq" {
