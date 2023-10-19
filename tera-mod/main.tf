@@ -195,7 +195,7 @@ resource "aws_security_group_rule" "https-to-eks" {
 #}
 
 resource "aws_iam_role" "eks-role" {
-  name = "test_role"
+  name = "eks-automachine-role"
 
   assume_role_policy = jsonencode({
     "Version": "2012-10-17",
@@ -215,7 +215,7 @@ resource "aws_iam_role" "eks-role" {
     ]
   })
   inline_policy {
-    name = "eks"
+    name = "eks-automachine-policy"
 
     policy = jsonencode({
       "Version": "2012-10-17",
