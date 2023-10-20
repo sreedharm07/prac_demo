@@ -44,24 +44,24 @@ module "docdb" {
   kms_key_id = var.kms_key_id
 }
 #
-#module "rds" {
-#  for_each = var.rds_mysql
-#
-#  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
-#  tags                    = var.tags
-#  env                     = var.env
-#  subnets_ids             = local.db-ids
-#  vpc_id                  = local.vpc_id
-#  sg-ingress-cidr         = local.subnets-apps-cidr
-#  sg_port                 = each.value["sg_port"]
-#  family                  = each.value["family"]
-#  backup_retention_period = each.value["backup_retention_period"]
-#  preferred_backup_window = each.value["preferred_backup_window"]
-#  engine_version          = each.value["engine_version"]
-#  engine                  = each.value["engine"]
-#  skip_final_snapshot     = each.value["skip_final_snapshot"]
-#  kms_key_id              = var.kms_key_id
-#}
+module "rds" {
+  for_each = var.rds_mysql
+
+  source                  = "git::https://github.com/sreedharm07/tf-mysql.git"
+  tags                    = var.tags
+  env                     = var.env
+  subnets_ids             = local.db-ids
+  vpc_id                  = local.vpc_id
+  sg-ingress-cidr         = local.subnets-apps-cidr
+  sg_port                 = each.value["sg_port"]
+  family                  = each.value["family"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  engine_version          = each.value["engine_version"]
+  engine                  = each.value["engine"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
+  kms_key_id              = var.kms_key_id
+}
 #
 module "redis" {
   source          = "git::https://github.com/sreedharm07/tf-elasticashe.git"
@@ -80,20 +80,20 @@ module "redis" {
 }
 #
 #
-#module "rabbitmq" {
-#  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
-#  for_each = var.rabbitmq
-#
-#  tags                = var.tags
-#  env                 = var.env
-#  vpc_id              = local.vpc_id
-#  sg-ingress-cidr     = local.subnets-apps-cidr
-#  port                = each.value["port"]
-#  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
-#  instance_type       = each.value["instance_type"]
-#  subnet_id           = local.db-ids
-#  kms_key_id          = var.kms_key_id
-#}
+module "rabbitmq" {
+  source   = "git::https://github.com/sreedharm07/tf-rabbitmq.git"
+  for_each = var.rabbitmq
+
+  tags                = var.tags
+  env                 = var.env
+  vpc_id              = local.vpc_id
+  sg-ingress-cidr     = local.subnets-apps-cidr
+  port                = each.value["port"]
+  sg-ssh-ingress-cidr = each.value["sg-ssh-ingress-cidr"]
+  instance_type       = each.value["instance_type"]
+  subnet_id           = local.db-ids
+  kms_key_id          = var.kms_key_id
+}
 
 
 #module "apps" {
