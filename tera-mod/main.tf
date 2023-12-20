@@ -160,8 +160,8 @@ module "eks" {
   }
 
   vpc_id                   = "vpc-04136af6db41c2bfa"
-  subnet_ids               = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]
-  control_plane_subnet_ids = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]
+  subnet_ids               = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]  #local.subnetids
+  control_plane_subnet_ids = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]  #local.subnetids
 
 
   eks_managed_node_groups = {
