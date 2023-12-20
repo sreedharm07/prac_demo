@@ -159,15 +159,15 @@ module "eks" {
     }
   }
 
-  vpc_id                   = local.vpc_id
-  subnet_ids               = local.subnets-ids
-  control_plane_subnet_ids = local.subnets-ids
+  vpc_id                   = "vpc-04136af6db41c2bfa"
+  subnet_ids               = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]
+  control_plane_subnet_ids = ["subnet-0ef96b42e3c1f1f84", "subnet-0e9e3c82bec3a0d3a"]
 
 
   eks_managed_node_groups = {
     blue  = {}
     green = {
-      min_size     = 1
+      min_size     = 2
       max_size     = 4
       desired_size = 1
 
