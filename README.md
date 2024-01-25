@@ -1,3 +1,2 @@
 # prac_demo
-just for my practice
-bdn
+just for my practic
