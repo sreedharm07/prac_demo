@@ -1,2 +1,2 @@
 # prac_demo
-just for my practic
+just for my practice
